@@ -1,0 +1,12 @@
+{
+  "name": "tibyan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "تبيان — منصة التدريب على القدرات والتحصيلي (Vercel + MongoDB Atlas)",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0"
+  }
+}
