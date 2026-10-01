@@ -2738,12 +2738,15 @@ try{ API_TOKEN = localStorage.getItem("tibyan_token") || null; }catch(e){}
 function api(path, opts){
   opts = opts || {};
   if(location.protocol==="file:"){
-    return Promise.reject(new Error("افتحي الموقع من الرابط (tibyan-app-manal-alhuthaifis-projects.vercel.app) — الملف المحلي ما يتصل بالخادم."));
+    return Promise.reject(new Error("افتحي الموقع من الرابط (tibyan-ruby.vercel.app) — الملف المحلي ما يتصل بالخادم."));
+  }
+  if(!location.origin || location.origin==="null"){
+    return Promise.reject(new Error("افتحي الرابط في متصفح عادي (مثل Chrome أو Safari) مباشرة، مو من داخل متصفح تطبيق آخر زي واتساب أو انستقرام."));
   }
   var headers = {"Content-Type":"application/json"};
   if(opts.headers) for(var k in opts.headers) headers[k]=opts.headers[k];
   if(API_TOKEN) headers["Authorization"]="Bearer "+API_TOKEN;
-  return fetch(path, {method:opts.method||"GET", headers:headers, body:opts.body})
+  return fetch(location.origin+path, {method:opts.method||"GET", headers:headers, body:opts.body})
     .then(function(r){
       return r.json().catch(function(){ return {}; }).then(function(data){
         if(!r.ok){ var e=new Error(data.error||"تعذّر الاتصال بالخادم."); e.data=data; throw e; }
@@ -2780,7 +2783,8 @@ function applyAccent(hex){
   var cached=null;
   try{ cached=localStorage.getItem("tibyan_accent"); }catch(e){}
   if(cached) applyAccent(cached==="default"?null:cached);
-  fetch("/api/settings").then(function(r){return r.json();}).then(function(data){
+  if(location.protocol==="file:"||!location.origin||location.origin==="null") return;
+  fetch(location.origin+"/api/settings").then(function(r){return r.json();}).then(function(data){
     applyAccent(data.accent||null);
     try{
       if(data.accent) localStorage.setItem("tibyan_accent",data.accent);
