@@ -1041,7 +1041,8 @@
   .tabbar { justify-content:center; grid-template-columns:repeat(5,minmax(0,140px)); }
   .tb.on { background:var(--accent-soft); border-radius:6px; }
   .tb { min-width:0; }
-  footer { padding:28px 22px; font-size:12px; line-height:1.8; }
+  footer { padding:28px 22px; font-size:12px; line-height:1.8; text-align:center; color:var(--ink-3); border-top:1px solid var(--line); }
+  footer .wrap { max-width:560px; }
   @media(min-width:900px) {
     #v-home .wrap { max-width:1080px; display:grid; grid-template-columns:1fr 1.15fr; column-gap:28px; }
     #v-home .head,#v-home .tabs,#v-home .subtabs,#v-home .band { grid-column:1/-1; }
