@@ -6,6 +6,7 @@ function toItem(r) {
 }
 
 module.exports = async (req, res) => {
+  if (req.query.__r === "laws") return require("../lib/routes/laws")(req, res);
   try {
     await ensureSchema();
     if (req.method === "GET") {

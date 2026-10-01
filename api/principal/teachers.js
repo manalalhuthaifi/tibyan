@@ -5,6 +5,7 @@ const { requireAuth, hashPassword } = require("../../lib/auth");
    GET  → قائمة المعلمات | DELETE/PATCH ?id=N → حذف معلمة / تغيير كلمة مرورها
    POST → { username, password, name } ينشئ حساب معلمة (جاهز للدخول مباشرة، بدون توثيق إيميل) */
 module.exports = async (req, res) => {
+  if (req.query.__r === "accounts") return require("../../lib/routes/accounts")(req, res);
   try {
     await ensureSchema();
     const u = await requireAuth(req, res, "principal");

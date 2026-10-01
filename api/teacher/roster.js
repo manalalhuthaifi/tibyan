@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
       const progress = normalizeProgress(s.progress);
       const lastToday = progress.qudrat.lastLogDay === today || progress.tahsili.lastLogDay === today;
       return {
-        name: s.name, cls: s.class || "—", skills, why,
+        id: s.id, name: s.name, cls: s.class || "—", skills, why,
         todayDone: progress.qudrat.todayDone + progress.tahsili.todayDone,
         last: s.done ? (lastToday ? "اليوم" : "قبل ذلك") : "ما بدأت",
       };

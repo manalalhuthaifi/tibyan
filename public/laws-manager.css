@@ -1,0 +1,11 @@
+.added-law-formula{white-space:pre-wrap;unicode-bidi:plaintext;overflow-wrap:anywhere;font-weight:500}
+.added-law-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.added-law-example{border-top:1px solid var(--line);margin-top:12px;padding-top:10px;font-size:14px}
+.added-law-example summary{color:var(--accent);cursor:pointer;min-height:44px;line-height:2.8}
+.added-law-example p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9}
+.added-law .learning-meta{margin-bottom:0}
+.added-law-actions{display:flex;gap:18px;margin-top:14px;border-top:1px solid var(--line)}
+#law-edit-form .btn{margin-bottom:10px}
+#law-edit-form [data-law-action=cancel]{margin-inline-start:16px}
+#law-load-status{padding-top:12px}
+@media print{.added-law-actions{display:none}.added-law{break-inside:avoid}}

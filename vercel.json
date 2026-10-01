@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/api/laws", "destination": "/api/channels?__r=laws" },
+    { "source": "/api/principal/accounts", "destination": "/api/principal/teachers?__r=accounts" },
+    { "source": "/api/growth", "destination": "/api/learning?__r=growth" }
+  ]
+}

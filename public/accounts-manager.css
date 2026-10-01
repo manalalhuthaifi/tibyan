@@ -1,0 +1,11 @@
+.accounts-table{min-width:1000px}
+.accounts-table td,.accounts-table th{padding:12px 10px;font-size:13px;vertical-align:middle}
+.accounts-table td:nth-child(2){min-width:160px;overflow-wrap:anywhere}
+.accounts-table input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.accounts-test-label{display:flex;gap:8px;align-items:center;min-height:44px;white-space:nowrap}
+.accounts-delete{color:var(--bad)!important}
+.accounts-pagination{padding:18px 0}
+.accounts-delete-list{padding:14px 22px;max-height:200px;overflow:auto;font-size:14px;line-height:1.9}
+#account-delete-dialog label{display:block;font-size:14px;margin:12px 0 6px}
+#account-delete-dialog .learning-row{margin-top:18px}
+.accounts-danger,.accounts-danger:hover{background:var(--bad);border-color:var(--bad);color:#fff!important}
