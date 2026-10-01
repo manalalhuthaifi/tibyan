@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>تبيان | منصة القدرات والتحصيلي</title>
 <meta name="description" content="تبيان، منصة تدريب للقدرات والتحصيلي لفهم الأداء ومراجعة الأخطاء وبناء خطة تدريب تناسب المستوى.">
@@ -909,24 +909,24 @@
     --shadow-2:0 8px 24px rgba(17,24,39,.08);
   }
   html[data-theme="light"] {
-    --bg:#FAFBFC; --surface:#FFFFFF; --surface-2:#F1F5F4;
-    --ink:#172421; --ink-2:#43544F; --ink-3:#63746D;
-    --line:#DFE7E3; --line-2:#BDCFC5;
-    --accent:#176B52; --accent-l:#218667; --accent-dk:#11513E; --accent-soft:#E8F4EF;
+    --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F3FE;
+    --ink:#1E1B2E; --ink-2:#4B4565; --ink-3:#6B6485;
+    --line:#E8E2F7; --line-2:#D6CBF2;
+    --accent:#6D28D9; --accent-l:#8B5CF6; --accent-dk:#4C1D95; --accent-soft:#F1EBFC;
     --on-accent:#FFFFFF;
-    --coral:#A45C19; --coral-dk:#804612; --coral-soft:#FFF3DF;
-    --ok:#15803D; --ok-soft:#E9F7EE; --warn:#9A6700; --warn-soft:#FFF4D9;
-    --bad:#B42336; --bad-soft:#FDECF0; --teal:#0F766E; --pink:#9D3962;
+    --coral:#FF5A3C; --coral-dk:#E0431F; --coral-soft:#FFE7DF;
+    --ok:#16A34A; --ok-soft:#DCFCE7; --warn:#D97706; --warn-soft:#FEF3C7;
+    --bad:#E11D48; --bad-soft:#FFE4E8; --teal:#0D9488; --teal-soft:#CCFBF1; --pink:#DB2777; --pink-soft:#FCE7F3;
   }
   html[data-theme="dark"] {
-    --bg:#111715; --surface:#19221E; --surface-2:#202D26;
-    --ink:#F1F5F3; --ink-2:#C2D0C8; --ink-3:#99AFA2;
-    --line:#32483B; --line-2:#4B6555;
-    --accent:#88D8B5; --accent-l:#A4E5C8; --accent-dk:#6DC59D; --accent-soft:#243E31;
-    --on-accent:#10251B;
-    --coral:#E8B575; --coral-dk:#DCA363; --coral-soft:#403421;
-    --ok:#86D69D; --ok-soft:#1E3727; --warn:#EAC277; --warn-soft:#3B321E;
-    --bad:#F2A4AF; --bad-soft:#3B2229; --teal:#88CEC6; --pink:#E4A3BF;
+    --bg:#160F26; --surface:#201936; --surface-2:#271F42;
+    --ink:#F4F1FB; --ink-2:#CBC2E6; --ink-3:#9C91BE;
+    --line:#332A56; --line-2:#453A6E;
+    --accent:#A78BFA; --accent-l:#C4AFFC; --accent-dk:#8465E0; --accent-soft:#2A2150;
+    --on-accent:#160F26;
+    --coral:#FF8A65; --coral-dk:#FF6B47; --coral-soft:#3A2418;
+    --ok:#4ADE80; --ok-soft:#113322; --warn:#FBBF24; --warn-soft:#3A2A0E;
+    --bad:#FB7185; --bad-soft:#3A1824; --teal:#5EEAD4; --teal-soft:#0F3836; --pink:#F472B6; --pink-soft:#3A1830;
   }
   body { background:var(--bg); }
   .wrap { max-width:900px; }
@@ -944,8 +944,8 @@
   .head p,.muted,.note,.hint { line-height:1.8; }
   .action small,.mode small { line-height:1.6; }
   .action b,.mode b { overflow-wrap:anywhere; }
-  #v-landing { background:#172821; }
-  #v-landing .hero-overlay { background:linear-gradient(180deg,rgba(8,19,14,.45),rgba(8,19,14,.65) 60%,rgba(8,19,14,.85)); }
+  #v-landing { background:#1B1030; }
+  #v-landing .hero-overlay { background:linear-gradient(180deg,rgba(20,10,40,.45),rgba(20,10,40,.65) 60%,rgba(16,8,32,.85)); }
   #v-landing .hero-h1 { font-size:48px; line-height:1.35; font-weight:700; letter-spacing:0; }
   #v-landing .hero-sub { max-width:580px; font-size:18px; line-height:1.8; }
   #v-landing .mode { background:rgba(255,255,255,.09); }
@@ -960,7 +960,120 @@
   #v-landing .hero-cta .note { width:100%; margin:0 !important; }
   #v-landing .band { opacity:1; transform:none; }
   #v-login .wrap,#v-verify .wrap { max-width:620px; }
-  #v-mock-intro { background:#173D31; }
+  #v-mock-intro { background:#2B1854; }
+  .band,.rp-hero,.logo-lg { opacity:1; transform:none; transition:none; }
+  main[id^="v-"]:not(.hidden) { animation:none; }
+  .logo-lg svg,.crest { animation:none; }
+  .head { padding:28px 0 18px; }
+  .head h1 { font-size:28px; line-height:1.5; }
+  .head p { font-size:15px; max-width:640px; }
+  .band { padding:24px 0; }
+  .band h2 { font-size:18px; line-height:1.6; margin-bottom:16px; }
+  .brand,.stat-v,.rp-name { letter-spacing:0; }
+  .streak { padding:6px 0; border:0; background:none; box-shadow:none; font-size:13px; }
+  .btn { box-shadow:none; }
+  input:focus,select:focus,textarea:focus { outline:2px solid var(--accent); outline-offset:2px; }
+  .tabs { gap:4px; }
+  .tab { min-height:48px; }
+  .subtab { border-radius:6px; padding:8px 14px; min-height:40px; }
+  .subtab.on { color:var(--on-accent); }
+  .stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+  #v-account .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat { min-width:0; padding:16px; }
+  .stat-k { font-size:12px; line-height:1.6; min-height:20px; }
+  .stat-v,.stats.compact .stat-v { font-family:var(--font); font-size:25px; line-height:1.35; font-weight:700; overflow-wrap:anywhere; }
+  .action { padding:16px; min-height:80px; }
+  .action>span:not(.ic):not(.go) { min-width:0; }
+  #v-home .actions .action[data-go="mock-intro"] { background:var(--surface); color:var(--ink); border-color:var(--line); }
+  #v-home .actions .action[data-go="mock-intro"] .ic { color:var(--coral); }
+  #v-home .actions .action[data-go="mock-intro"] .go { color:var(--ink-3); }
+  #v-home .actions .action[data-go="mock-intro"] small { color:var(--ink-3); }
+  #v-home .actions .action[data-go="mock-intro"]:hover { background:var(--coral-soft); }
+  #v-home .actions .action[data-go="miss"] { border:1px solid var(--line); }
+  #v-home .focus { border-radius:0; padding:16px 0 16px 12px; box-shadow:none; background:none; }
+  #v-home .goal { padding:16px; }
+  #v-home .modes { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #v-home .mode { padding:16px; }
+  #v-home .mode.wide { display:grid; grid-template-columns:38px 1fr; column-gap:12px; }
+  #v-home .mode.wide .ic { grid-row:1/3; margin:0; }
+  #v-home .mode.wide small { grid-column:2; }
+  .mode .ic { border-radius:6px; }
+  html[data-theme="light"] { --c1-bg:#F1EBFC; --c1-fg:#6D28D9; --c2-bg:#E0F2FE; --c2-fg:#0369A1; --c3-bg:#FEF3C7; --c3-fg:#B45309; --c4-bg:#FCE7F3; --c4-fg:#BE185D; }
+  html[data-theme="dark"] { --c1-bg:#2A2150; --c1-fg:#C4AFFC; --c2-bg:#1E2F45; --c2-fg:#7DD3FC; --c3-bg:#3A2A0E; --c3-fg:#FBBF24; --c4-bg:#3A1830; --c4-fg:#F472B6; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .list-toolbar { display:flex; align-items:center; gap:16px; margin:18px 0; }
+  .list-toolbar input { max-width:400px; min-width:0; margin:0; padding:12px 14px; }
+  .search-count { color:var(--ink-3); font-size:13px; line-height:1.6; }
+  .table-scroll { margin:0; padding:0; border:1px solid var(--line); border-radius:8px; }
+  table { min-width:580px; font-size:14px; }
+  th { background:var(--surface-2); color:var(--ink-2); font-weight:600; }
+  th,td { padding:14px 16px; }
+  tr.click:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  tr.click:hover td,tr.click:focus td { background:var(--accent-soft); }
+  .rp-hero { border:0; border-bottom:1px solid var(--line); border-radius:0; background:none; box-shadow:none; padding:28px 0; display:grid; grid-template-columns:minmax(0,1fr) 128px; text-align:right; gap:18px 28px; align-items:center; }
+  .rp-id { min-width:0; }
+  .rp-avatar { border-radius:8px; background:var(--accent); color:var(--on-accent); }
+  .rp-id>div:last-child { min-width:0; }
+  .rp-name { font-size:22px; overflow-wrap:anywhere; }
+  .rp-sub { line-height:1.7; }
+  .rp-ring { grid-column:2; grid-row:1/3; }
+  .rp-narrative { margin:0; max-width:640px; font-size:15px; }
+  .rp-side { background:none; border:0; border-inline-start:3px solid var(--ok); border-radius:0; box-shadow:none; padding:6px 16px; }
+  .rp-side.warn { border-inline-start-color:var(--warn); }
+  .rp-advice { border:0; border-inline-start:3px solid var(--accent); border-radius:0; }
+  .rp-advice-k { letter-spacing:0; }
+  .ch-card,.law-card,.miss { border:1px solid var(--line); box-shadow:none; padding:20px; }
+  .ch-name { font-size:17px; line-height:1.6; font-weight:700; }
+  .ch-why { line-height:1.8; }
+  .ch-tag { border-radius:4px; padding:3px 8px; }
+  .ch-link { min-height:40px; font-weight:500; }
+  .ch-del { min-height:40px; }
+  .miss-top { flex-wrap:wrap; }
+  .miss-a { line-height:1.8; }
+  .empty { padding:32px 20px; border:1px dashed var(--line-2); border-radius:8px; }
+  .form-box { border:0; border-top:1px solid var(--line); border-radius:0; background:none; padding:24px 0; box-shadow:none; }
+  #v-quiz .wrap,#v-mock .wrap,#v-done .wrap { max-width:760px; }
+  .qtext { font-size:21px; line-height:1.9; }
+  .choice { border-radius:8px; min-height:58px; padding:14px 16px; }
+  .choice .lt { flex:none; }
+  .why-b { border-radius:6px; }
+  .tabbar { justify-content:center; grid-template-columns:repeat(5,minmax(0,140px)); }
+  .tb.on { background:var(--accent-soft); border-radius:6px; }
+  .tb { min-width:0; }
+  footer { padding:28px 22px; font-size:12px; line-height:1.8; }
+  @media(min-width:900px) {
+    #v-home .wrap { max-width:1080px; display:grid; grid-template-columns:1fr 1.15fr; column-gap:28px; }
+    #v-home .head,#v-home .tabs,#v-home .subtabs,#v-home .band { grid-column:1/-1; }
+    #v-home .home-actions { grid-column:1; align-content:start; padding-top:24px; }
+    #v-home .home-overview { grid-column:2; border-top:0; }
+    #v-teacher .wrap { max-width:1080px; }
+    #byskill-list { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    #byskill-list .qskill,#byskill-list .empty { grid-column:1/-1; }
+  }
+  @media(max-width:600px) {
+    .head { padding:24px 0 14px; }
+    .head h1 { font-size:25px; }
+    .band { padding:20px 0; }
+    .stat,.stats.compact .stat { padding:12px 10px; }
+    .stat-v,.stats.compact .stat-v { font-size:22px; }
+    .stats:not(.compact) .stat { border-top:1px solid var(--line); }
+    .list-toolbar { align-items:stretch; flex-direction:column; gap:6px; }
+    .list-toolbar input { max-width:none; }
+    .rp-hero { grid-template-columns:minmax(0,1fr) 100px; gap:14px; }
+    .rp-ring { width:100px; height:100px; }
+    .rp-narrative { grid-column:1/-1; }
+    .rp-ring { grid-row:1; }
+    .rp-avatar { width:40px; height:40px; }
+    .rp-name { font-size:18px; }
+    .rp-id { gap:10px; }
+    .rp-split { grid-template-columns:1fr 1fr; }
+    .rp-side { padding:4px 12px; }
+    .rp-side-v { font-size:15px; overflow-wrap:anywhere; }
+    .qtext { font-size:18px; }
+    .exam-item { flex-wrap:wrap; gap:8px; }
+    .exam-item>span:nth-child(2) { flex:1; min-width:0; }
+    .exam-when { width:100%; text-align:right; padding-inline-start:16px; }
+  }
   @media(max-width:600px) {
     #v-landing .hero-h1 { font-size:32px; }
     #v-landing .hero-sub { font-size:16px; }
@@ -973,8 +1086,17 @@
   @media print {
     .wrap { max-width:100%; padding:0; }
     .topbar { display:none; }
+    .list-toolbar { display:none; }
+    .table-scroll { overflow:visible; border:0; }
+    table { min-width:0; }
+    .rp-hero { padding:10px 0; }
+    th,td { padding:7px; }
+    body.has-tabbar { padding-bottom:0; }
   }
 </style>
+<link rel="stylesheet" href="/learning.css">
+<link rel="stylesheet" href="/growth.css">
+<link rel="stylesheet" href="/responsive.css">
 </head>
 <body>
 
@@ -1189,7 +1311,7 @@
 <!-- ========== لوحة الطالبة ========== -->
 <main id="v-home" class="hidden">
   <div class="wrap">
-    <div class="head"><h1 id="greet">مرحبًا 👋</h1><p id="greet-2">اختاري مساركِ التدريبي لهذا اليوم.</p>
+    <div class="head"><h1 id="greet">مرحبًا بكِ</h1><p id="greet-2">اختاري مساركِ التدريبي لهذا اليوم.</p>
       <div class="streak cold" id="streak"></div></div>
 
     <div class="tabs" id="track-tabs">
@@ -1202,7 +1324,7 @@
       <button class="subtab" data-sub="verbal">لفظي</button>
     </div>
 
-    <div class="actions">
+    <div class="actions home-actions">
       <button class="action hidden" id="place-card" data-go="place">
         <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/></svg></span>
         <span><b>حدّدي مستواك</b><small>أسئلة قصيرة لبناء خطتكِ وإظهار تقدير مستواكِ</small></span>
@@ -1225,11 +1347,11 @@
       </button>
     </div>
 
-    <div class="band">
+    <div class="band home-overview">
       <div class="stats compact">
-        <div class="stat"><div class="stat-k">درجتك</div><div class="stat-v" id="lvl">—</div></div>
-        <div class="stat"><div class="stat-k">هدفك</div><div class="stat-v soft" id="goal">٩٠</div></div>
-        <div class="stat"><div class="stat-k">باقي</div><div class="stat-v" id="left">—</div></div>
+        <div class="stat"><div class="stat-k">دقة الإجابات</div><div class="stat-v" id="lvl">—</div></div>
+        <div class="stat"><div class="stat-k">أسئلة التدريب</div><div class="stat-v" id="home-done">٠</div></div>
+        <div class="stat"><div class="stat-k">حتى الاختبار</div><div class="stat-v" id="left">—</div></div>
       </div>
 
       <div class="goal" style="margin-top:10px">
@@ -1240,7 +1362,7 @@
 
       <div class="focus" style="margin-top:10px">
         <div><div class="focus-k">أولوية التدريب الحالية</div><div class="focus-v" id="weak">—</div></div>
-        <button data-go="today">تدربي عليها<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button data-go="today">تدرّبي عليها<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg></button>
       </div>
     </div>
 
@@ -1305,8 +1427,8 @@
     <div class="head"><h1>حسابي</h1><p id="acc-sub"></p></div>
     <div class="band">
       <div class="stats">
-        <div class="stat"><div class="stat-k">درجتك المتوقعة</div><div class="stat-v" id="acc-lvl">—</div></div>
-        <div class="stat"><div class="stat-k">أسئلة حللتيها</div><div class="stat-v" id="acc-done">٠</div></div>
+        <div class="stat"><div class="stat-k">دقة الإجابات</div><div class="stat-v" id="acc-lvl">—</div></div>
+        <div class="stat"><div class="stat-k">الأسئلة المحلولة</div><div class="stat-v" id="acc-done">٠</div></div>
       </div>
       <div class="stats compact" style="margin-top:8px">
         <div class="stat"><div class="stat-k">سلسلة القدرات</div><div class="stat-v" id="acc-streak-qudrat">٠</div></div>
@@ -1478,6 +1600,11 @@
     </div>
 
     <div class="filters" id="ch-filters"></div>
+    <div class="list-toolbar">
+      <label class="sr-only" for="channel-search">البحث في القنوات</label>
+      <input type="search" id="channel-search" placeholder="ابحثي عن قناة أو مصدر" autocomplete="off">
+      <span class="search-count" id="channel-count" role="status"></span>
+    </div>
     <div id="ch-list"></div>
   </div>
 </main>
@@ -1491,6 +1618,11 @@
       <button class="tab" data-sec="tahsili">التحصيلي</button>
     </div>
     <div class="subtabs" id="laws-subs"></div>
+    <div class="list-toolbar">
+      <label class="sr-only" for="law-search">البحث في القوانين</label>
+      <input type="search" id="law-search" placeholder="ابحثي عن قانون أو مفهوم" autocomplete="off">
+      <span class="search-count" id="law-count" role="status"></span>
+    </div>
     <div class="law-grid" id="laws-body" style="margin-top:22px"></div>
   </div>
 </main>
@@ -1503,6 +1635,11 @@
       <button class="subtab on" data-bysub="all">الكل</button>
       <button class="subtab" data-bysub="quant">كمي</button>
       <button class="subtab" data-bysub="verbal">لفظي</button>
+    </div>
+    <div class="list-toolbar">
+      <label class="sr-only" for="skill-search">البحث في المهارات</label>
+      <input type="search" id="skill-search" placeholder="ابحثي عن مهارة" autocomplete="off">
+      <span class="search-count" id="skill-count" role="status"></span>
     </div>
     <div id="byskill-list" style="margin-top:18px"></div>
   </div>
@@ -1589,7 +1726,7 @@
     <div class="head"><h1 id="d-h"></h1><p id="d-p"></p></div>
     <div class="band">
       <div class="stats">
-        <div class="stat"><div class="stat-k">صح</div><div class="stat-v" id="d-right"></div></div>
+        <div class="stat"><div class="stat-k">الإجابات الصحيحة</div><div class="stat-v" id="d-right"></div></div>
         <div class="stat"><div class="stat-k">مستواكِ الآن</div><div class="stat-v" id="d-lvl"></div></div>
         <div class="stat"><div class="stat-k">متوسط الوقت</div><div class="stat-v" id="d-time"></div></div>
       </div>
@@ -1681,7 +1818,7 @@
       <div class="stats">
         <div class="stat"><div class="stat-k">الطالبات</div><div class="stat-v" id="t-n"></div></div>
         <div class="stat"><div class="stat-k">متوسط المستوى</div><div class="stat-v" id="t-avg"></div></div>
-        <div class="stat"><div class="stat-k">تحت ٧٠</div><div class="stat-v" id="t-low"></div></div>
+        <div class="stat"><div class="stat-k">تحتاج إلى متابعة</div><div class="stat-v" id="t-low"></div></div>
       </div>
     </div>
     <div class="band hidden" id="teacher-name-band">
@@ -1696,6 +1833,11 @@
     <div class="band">
       <h2>الطالبات</h2>
       <div class="filters" id="t-filters"></div>
+      <div class="list-toolbar no-print">
+        <label class="sr-only" for="student-search">البحث في الطالبات</label>
+        <input type="search" id="student-search" placeholder="ابحثي باسم الطالبة أو المهارة" autocomplete="off">
+        <span class="search-count" id="student-count" role="status"></span>
+      </div>
       <div class="table-scroll"><table>
         <thead><tr><th>الطالبة</th><th>المستوى</th><th>أضعف مهارة</th><th>آخر نشاط</th></tr></thead>
         <tbody id="t-rows"></tbody>
@@ -1743,7 +1885,7 @@
     <div class="band">
       <h2>أضعف المهارات على مستوى الفصل</h2>
       <div id="t-skills" class="skills-grid"></div>
-      <p class="note">لو مهارة تحت ٦٠٪ عند أغلب الفصل، فالمشكلة على الأرجح في الشرح لا في الطالبات.</p>
+      <p class="note">انخفاض الأداء في مهارة لدى أغلب الفصل قد يستدعي مراجعة جماعية للشرح قبل زيادة التدريب.</p>
     </div>
     <button class="btn quiet no-print" id="t-print">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="7" rx="1"/><path d="M7 16h10v4H7z"/></svg>
@@ -2457,6 +2599,37 @@ var STUDENTS=[
 var AR="٠١٢٣٤٥٦٧٨٩";
 function ar(n){return String(n).split("").map(function(c){return /\d/.test(c)?AR[+c]:c;}).join("");}
 function el(id){return document.getElementById(id);}
+var LIST_SEARCH={
+  channels:{input:"channel-search",box:"ch-list",items:".ch-card",count:"channel-count"},
+  laws:{input:"law-search",box:"laws-body",items:".law-card",count:"law-count"},
+  skills:{input:"skill-search",box:"byskill-list",items:".action",count:"skill-count"},
+  students:{input:"student-search",box:"t-rows",items:"tr",count:"student-count"}
+};
+function searchText(value){
+  return String(value).normalize("NFKC").replace(/[\u064B-\u065F\u0670\u0640]/g,"").replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").toLowerCase();
+}
+function applyListSearch(key){
+  var config=LIST_SEARCH[key], query=searchText(el(config.input).value.trim());
+  var nodes=el(config.box).querySelectorAll(config.items), matches=0;
+  nodes.forEach(function(node){
+    var match=!query||searchText(node.textContent).indexOf(query)>=0;
+    node.classList.toggle("hidden",!match); if(match) matches++;
+  });
+  el(config.count).textContent=nodes.length ? (matches?"عدد النتائج: "+ar(matches):"لا توجد نتائج مطابقة") : "";
+  if(key==="skills"){
+    el(config.box).querySelectorAll(".qskill").forEach(function(heading){
+      var next=heading.nextElementSibling, visible=false;
+      while(next&&!next.classList.contains("qskill")){
+        if(next.classList.contains("action")&&!next.classList.contains("hidden")) visible=true;
+        next=next.nextElementSibling;
+      }
+      heading.classList.toggle("hidden",!visible);
+    });
+  }
+}
+Object.keys(LIST_SEARCH).forEach(function(key){
+  el(LIST_SEARCH[key].input).addEventListener("input",function(){applyListSearch(key);});
+});
 /* تنقّي أي نص قبل إدراجه كـ HTML — تمنع حقن كود من محتوى تُدخله المعلمة (سؤال/قناة) */
 function esc(s){
   return String(s==null?"":s).replace(/[&<>"']/g,function(c){
@@ -2976,7 +3149,7 @@ function paintBySkill(){
     var mine=me.skills[k];
     var pct = mine? Math.round(mine.ok/mine.n*100) : null;
     var b=document.createElement("button"); b.className="action";
-    b.innerHTML='<span><b>'+esc(k)+'</b><small>'+ar(names[k])+' أسئلة متاحة'+(pct===null?' · ما جربتيها بعد':' · نسبتك '+ar(pct)+'٪')+'</small></span>'+
+    b.innerHTML='<span><b>'+esc(k)+'</b><small>'+ar(names[k])+' أسئلة متاحة'+(pct===null?' · لم تبدئي التدريب بعد':' · دقة الإجابات '+ar(pct)+'٪')+'</small></span>'+
       '<span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 6l-6 6 6 6"/></svg></span>';
     b.addEventListener("click",function(){
       var list=shuffle(Q.filter(function(q){return q.skill===k;})).slice(0,5);
@@ -2985,7 +3158,7 @@ function paintBySkill(){
     return b;
   }
 
-  if(!Object.keys(names).length){ box.innerHTML=emptyHTML("chart","لا توجد أسئلة بهذا التصنيف بعد"); return; }
+  if(!Object.keys(names).length){ box.innerHTML=emptyHTML("chart","لا توجد أسئلة بهذا التصنيف بعد"); applyListSearch("skills"); return; }
 
   if(me.activeTrack==="qudrat" && me.activeSub==="all"){
     [["quant","كمي"],["verbal","لفظي"]].forEach(function(pair){
@@ -2999,6 +3172,7 @@ function paintBySkill(){
   } else {
     Object.keys(names).forEach(function(k){ box.appendChild(skillBtn(k)); });
   }
+  applyListSearch("skills");
 }
 document.querySelectorAll("[data-sub],[data-bysub]").forEach(function(b){
   b.addEventListener("click",function(){
@@ -3142,11 +3316,12 @@ function paintHome(){
   var hasTrackData=Object.keys(tSkills).length>0;
   var fullSkills=skillsForTrack(me.skills,track,"all");
   var fullLevel=level(fullSkills);
+  el("home-done").textContent=ar(Object.keys(tSkills).reduce(function(total,key){return total+tSkills[key].n;},0));
 
-  el("greet").textContent="مرحبًا "+firstName(me.name)+" 👋";
+  el("greet").textContent="مرحبًا، "+firstName(me.name);
   el("greet-2").textContent= me.placed? "قسم «"+label+"» — اختاري مساركِ التدريبي لهذا اليوم." : "ابدئي بتحديد مستواك.";
   el("place-card").classList.toggle("hidden", me.placed);
-  if(me.placed||me.done) countUp(el("lvl"), tLevel); else el("lvl").textContent="—";
+  if(me.placed||me.done) countUp(el("lvl"), tLevel,"٪"); else el("lvl").textContent="—";
   var dl=daysLeft();
   el("left").textContent = dl===null ? "لم تحدّديه" : ar(dl)+" يوم";
   el("weak").textContent = hasTrackData? tWeak : "بعد التحديد";
@@ -3277,7 +3452,7 @@ function roster(){
 function loadRoster(cb){
   api("/api/teacher/roster").then(function(data){
     TEACHER_ROSTER=(data.students||[]).map(function(s){
-      return {name:s.name, cls:s.cls, skills:s.skills, why:s.why, last:s.last,
+      return {id:s.id, name:s.name, cls:s.cls, skills:s.skills, why:s.why, last:s.last,
         plan: Math.min(100, Math.round(s.todayDone/targetFor(s)*100))};
     });
   }).catch(function(){ TEACHER_ROSTER=[]; }).then(cb);
@@ -3317,7 +3492,12 @@ function paintTeacher(){
     var lv=level(s.skills), tone=lv<60?"bad":(lv<70?"warn":"ok");
     tr.innerHTML='<td><div class="who-n">'+esc(s.name)+'</div><div class="who-c">'+esc(s.cls||"—")+'</div></td>'+
       '<td>'+miniRing(lv,tone)+'</td><td>'+esc(weakest(s.skills))+'</td><td>'+esc(s.last)+'</td>';
+    tr.tabIndex=0;
+    tr.setAttribute("aria-label","تقرير الطالبة "+s.name);
     tr.addEventListener("click",function(){ report(idx); });
+    tr.addEventListener("keydown",function(event){
+      if(event.key==="Enter"||event.key===" "){ event.preventDefault(); report(idx); }
+    });
     tb.appendChild(tr);
   });
 
@@ -3331,6 +3511,7 @@ function paintTeacher(){
   var box=el("t-skills"); box.innerHTML="";
   Object.keys(agg).sort(function(a,b){return (agg[a].ok/agg[a].n)-(agg[b].ok/agg[b].n);})
     .forEach(function(k){ box.appendChild(skillRow(k,agg[k])); });
+  applyListSearch("students");
 }
 function report(idx){
   var pool=roster().filter(function(x){ return clsFilter==="الكل"||x.cls===clsFilter; });
@@ -3358,7 +3539,7 @@ function report(idx){
     el("r-vs").textContent="—";
   } else {
     var diff=lvl-classAvg;
-    el("r-vs").textContent=(diff>=0?"+":"")+ar(Math.abs(diff))+(diff>=0?" فوق":" تحت");
+    el("r-vs").textContent=diff===0?"مماثل للفصل":(diff>0?"أعلى بـ ":"أقل بـ ")+ar(Math.abs(diff));
   }
 
   var skKeys=Object.keys(s.skills);
@@ -3512,6 +3693,7 @@ function paintLaws(){
     d.innerHTML='<div class="law-t">'+g.t+'</div>'+g.rows.map(function(r){return '<div class="law-row">'+r+'</div>';}).join('');
     box.appendChild(d);
   });
+  applyListSearch("laws");
 }
 document.querySelectorAll("[data-sec]").forEach(function(b){
   b.addEventListener("click",function(){
@@ -3651,7 +3833,8 @@ function paintChannels(){
   var list=CHANNELS.filter(function(c){ return chFilter==="الكل"||c.area===chFilter; });
   if(!list.length){
     box.innerHTML=emptyHTML("link", me.role==="teacher" ? "لم تُضاف أي قناة بعد" : "لم تُضف المعلمة قنوات بعد",
-      me.role==="teacher" ? "أضيفي أول حساب من النموذج أعلاه" : "");
+      me.role==="teacher" ? "أضيفي أول قناة من النموذج أعلاه" : "");
+    applyListSearch("channels");
     return;
   }
   list.forEach(function(c,idx){
@@ -3673,6 +3856,7 @@ function paintChannels(){
       }).catch(function(err){ alert(err.message); });
     });
   });
+  applyListSearch("channels");
 }
 
 el("ch-add").addEventListener("click",function(){
@@ -3771,12 +3955,14 @@ function paintTabbar(v){
   document.body.classList.toggle("has-tabbar", show);
   var key=NAV[v]||"";
   document.querySelectorAll(".tb").forEach(function(b){
-    b.classList.toggle("on", b.getAttribute("data-nav")===key);
+    var active=b.getAttribute("data-nav")===key;
+    b.classList.toggle("on", active);
+    if(active) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current");
   });
 }
 /* لوحة المفاتيح تغطي الشريط السفلي فوق الحقول — نخفيه وقت الكتابة فقط */
 document.addEventListener("focusin",function(e){
-  if(e.target.matches("input,select,textarea")) document.body.classList.add("kb-open");
+  if(window.matchMedia("(pointer:coarse)").matches && e.target.matches("input:not([type=checkbox]):not([type=radio]),textarea")) document.body.classList.add("kb-open");
 });
 document.addEventListener("focusout",function(e){
   if(e.target.matches("input,select,textarea")) document.body.classList.remove("kb-open");
@@ -3784,7 +3970,7 @@ document.addEventListener("focusout",function(e){
 
 function paintAccount(){
   el("acc-sub").textContent = me.name + (me.cls? " · "+me.cls : "");
-  el("acc-lvl").textContent = Object.keys(me.skills).length? ar(level()) : "—";
+  el("acc-lvl").textContent = Object.keys(me.skills).length? ar(level())+"٪" : "—";
   el("acc-done").textContent = ar(me.done);
   el("acc-streak-qudrat").textContent = ar(me.progress.qudrat.streak);
   el("acc-streak-tahsili").textContent = ar(me.progress.tahsili.streak);
@@ -4032,5 +4218,11 @@ if(API_TOKEN){
   }).catch(function(){ setToken(null); });
 }
 </script>
+<script src="/learning-core.js"></script>
+<script src="/learning.js"></script>
+<script src="/growth-core.js"></script>
+<script src="/growth.js"></script>
+<script src="/report-core.js"></script>
+<script src="/reports.js"></script>
 </body>
 </html>
