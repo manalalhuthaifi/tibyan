@@ -1,49 +1,32 @@
-# تبيان — النشر على Vercel مع MongoDB Atlas
+# تبيان — تعليمات النشر
 
-## ١) متغيّرات البيئة (Vercel → Settings → Environment Variables)
+الكود جاهز بالكامل (باك اند Node.js + Postgres، وواجهة تبيان متصلة به). الخطوة الوحيدة المتبقية هي رفعه على Vercel لأن ملف الواجهة كبير الحجم بسبب بنك الأسئلة (٥٨٠ سؤال).
 
-| المتغيّر | القيمة |
-|---|---|
-| `MONGODB_URI` | سلسلة الاتصال من Atlas (Connect → Drivers) |
-| `MONGODB_DB` | `tibyan` |
-| `JWT_SECRET` | نص طويل عشوائي |
-| `SEED_SECRET` | نص طويل عشوائي |
-| `TEACHER_USER` / `TEACHER_PASS` / `TEACHER_NAME` | `areej` / كلمة مرور قوية / `أ. أريج` |
-| `MANAGER_USER` / `MANAGER_PASS` / `MANAGER_NAME` | `manager` / كلمة مرور قوية / `أ. عفاف` |
+## ١) الرفع (دقيقتان)
+1. افتحي https://vercel.com/new في المتصفح (وأنتِ مسجلة دخول بحسابك — manal alhuthaifi's projects).
+2. اسحبي مجلد `tibyan-app` هذا كامل (بما فيه `api/` و`public/` و`package.json`) وأفلتيه في صفحة "Deploy".
+3. اضغطي Deploy.
 
-في Atlas → Network Access أضيفي `0.0.0.0/0` حتى تصل دوال Vercel لقاعدة البيانات.
+## ٢) بعد أول نشر — إضافة قاعدة البيانات (دقيقة)
+1. من صفحة المشروع في Vercel → تبويب **Storage** → **Create Database** → اختاري **Postgres** (أو Neon) → **Connect**.
+   هذا يضيف تلقائيًا متغيرات البيئة `POSTGRES_URL` وما شابهها.
 
-## ٢) النشر
+## ٣) إضافة متغيرات البيئة (دقيقة)
+من **Settings → Environment Variables** أضيفي:
+- `JWT_SECRET` — أي نص عشوائي طويل وسري (مثلاً 40 حرف/رقم عشوائي).
+- `ADMIN_USER` — اسم مستخدم **المديرة** (الحساب الرئيسي). المديرة تدخل به، وتنشئ حسابات المعلمات من زر «إدارة المعلمات» داخل الموقع.
+- `ADMIN_PASS` — كلمة مرور المديرة (اختاري كلمة قوية).
+- `GMAIL_USER` و`GMAIL_APP_PASSWORD` — لإرسال كود التحقق من حساب Gmail (الأسهل بدون دومين): فعّلي التحقق بخطوتين في حساب Google، ثم من myaccount.google.com/apppasswords أنشئي «كلمة مرور تطبيقات» وحطّيها هنا، وGMAIL_USER هو عنوان الجيميل. لو موجودين يُستخدمان بدل Resend.
+- `RESEND_API_KEY` — مفتاح API من حساب مجاني في https://resend.com (لإرسال كود تحقق الإيميل عند التسجيل).
+  سجّلي حساب، من **API Keys** أنشئي مفتاحًا جديدًا وحطّيه هنا.
+- `EMAIL_FROM` — اختياري. لو ما حطّيتيه، الإيميلات ترسل من `onboarding@resend.dev` (صالح للتجربة فقط،
+  ووصولها لصندوق الوارد أقل موثوقية). لإرسال بعنوان مدرستك، اربطي نطاقًا في Resend (**Domains → Add Domain**)
+  ثم حطّي هنا مثلاً `تبيان <no-reply@your-domain.com>`.
 
-```bash
-npm i -g vercel
-vercel --prod
-```
+## ٤) إعادة النشر
+بعد إضافة المتغيرات، من تبويب **Deployments** اضغطي على آخر نشر → **Redeploy** (حتى تُقرأ المتغيرات الجديدة).
 
-## ٣) التهيئة مرة واحدة بعد أول نشر
+بعدها الموقع يشتغل بالكامل: تسجيل حساب حقيقي، حفظ دائم للتقدم، ودخول المعلمة عبر `ADMIN_USER`/`ADMIN_PASS` بدل الحساب المكشوف بالكود القديم.
 
-```bash
-curl -X POST https://<اسم-المشروع>.vercel.app/api/seed \
-  -H "Content-Type: application/json" \
-  -d '{"secret":"<SEED_SECRET>"}'
-```
-ينشئ حسابي المعلمة والمديرة والفهارس.
-
-## البنية
-
-```
-api/auth/signup.js   إنشاء حساب طالبة
-api/auth/login.js    تسجيل الدخول
-api/me.js            قراءة/حفظ تقدّم الطالبة
-api/students.js      قائمة الطالبات (معلمة/مديرة)
-api/questions.js     بنك الأسئلة
-api/channels.js      القنوات الموصى بها
-api/contacts.js      سجل التواصل
-api/seed.js          التهيئة الأولى
-api/health.js        فحص الاتصال
-public/index.html    التطبيق
-```
-
-المجموعات في MongoDB: `users` · `questions` · `channels` · `contacts`.
-
-الملف `public/index.html` يعمل أيضًا وحده بدون خادم (وضع محلي) إذا فُتح مباشرة من القرص.
+## ملاحظة أمان
+لا تشاركي قيمة `JWT_SECRET` أو `ADMIN_PASS` مع أحد، ولا ترفعيها في أي مكان عام.
