@@ -1001,6 +1001,7 @@
   html[data-theme="light"] { --c1-bg:#F1EBFC; --c1-fg:#6D28D9; --c2-bg:#E0F2FE; --c2-fg:#0369A1; --c3-bg:#FEF3C7; --c3-fg:#B45309; --c4-bg:#FCE7F3; --c4-fg:#BE185D; }
   html[data-theme="dark"] { --c1-bg:#2A2150; --c1-fg:#C4AFFC; --c2-bg:#1E2F45; --c2-fg:#7DD3FC; --c3-bg:#3A2A0E; --c3-fg:#FBBF24; --c4-bg:#3A1830; --c4-fg:#F472B6; }
   .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .note.error { color:var(--bad); }
   .list-toolbar { display:flex; align-items:center; gap:16px; margin:18px 0; }
   .list-toolbar input { max-width:400px; min-width:0; margin:0; padding:12px 14px; }
   .search-count { color:var(--ink-3); font-size:13px; line-height:1.6; }
@@ -2829,6 +2830,7 @@ document.querySelectorAll("[data-auth]").forEach(function(b){
                                  : "تابعي مستواكِ وخطتكِ وسجل أخطائكِ من حسابكِ.";
     el("do-auth").textContent = up? "إنشاء الحساب" : "دخول";
     el("in-pass").setAttribute("autocomplete", up? "new-password":"current-password");
+    el("auth-msg").classList.remove("error");
     el("auth-msg").textContent="";
   });
 });
@@ -2850,20 +2852,21 @@ function goToVerify(username,msgText){
   pendingUsername=username;
   el("verify-p").textContent=msgText||"أرسلنا رمز تحقق مكوّنًا من ٦ أرقام إلى بريدكِ الإلكتروني.";
   el("verify-code").value="";
+  el("verify-msg").classList.remove("error");
   el("verify-msg").textContent="";
   view("verify");
 }
 el("do-auth").addEventListener("click",function(){
   var u=el("in-user").value.trim(), pw=el("in-pass").value, msg=el("auth-msg"), btn=el("do-auth");
-  if(!u||!pw){ msg.textContent="أدخلي اسم المستخدم وكلمة المرور."; return; }
-  btn.disabled=true; msg.textContent="جارٍ المعالجة...";
+  if(!u||!pw){ msg.classList.add("error"); msg.textContent="أدخلي اسم المستخدم وكلمة المرور."; return; }
+  btn.disabled=true; msg.classList.remove("error"); msg.textContent="جارٍ المعالجة...";
 
   var req;
   if(authMode==="up"){
     var nm=el("in-name").value.trim();
     var em=el("in-email").value.trim().toLowerCase();
-    if(!nm){ msg.textContent="أدخلي اسمكِ الكامل."; btn.disabled=false; return; }
-    if(!em){ msg.textContent="أدخلي بريدكِ الإلكتروني."; btn.disabled=false; return; }
+    if(!nm){ msg.classList.add("error"); msg.textContent="أدخلي اسمكِ الكامل."; btn.disabled=false; return; }
+    if(!em){ msg.classList.add("error"); msg.textContent="أدخلي بريدكِ الإلكتروني."; btn.disabled=false; return; }
     var cls=el("in-year").value+" · "+el("in-sec").value;
     req=api("/api/auth/signup",{method:"POST",body:JSON.stringify({username:u,password:pw,name:nm,email:em,cls:cls})});
   } else {
@@ -2874,7 +2877,7 @@ el("do-auth").addEventListener("click",function(){
     if(data.needsVerification){
       var savedUser=u;
       el("in-user").value=""; el("in-pass").value=""; el("in-name").value=""; el("in-email").value="";
-      msg.textContent="";
+      msg.classList.remove("error"); msg.textContent="";
       var vmsg = data.mailError
         ? "تم إنشاء الحساب، لكن تعذّر إرسال البريد الآن. جرّبي إعادة الإرسال بعد قليل."
         : (authMode==="up" ? "تم إنشاء الحساب. أرسلنا رمز التحقق إلى بريدكِ الإلكتروني لإكمال التسجيل." : "يلزم التحقق من بريدكِ الإلكتروني أولًا. أرسلنا رمزًا جديدًا إلى بريدكِ.");
@@ -2884,7 +2887,7 @@ el("do-auth").addEventListener("click",function(){
     setToken(data.token);
     applyProfile(data.profile);
     el("in-user").value=""; el("in-pass").value=""; el("in-name").value=""; el("in-email").value="";
-    msg.textContent="";
+    msg.classList.remove("error"); msg.textContent="";
     bootstrapAfterAuth().then(routeAfterAuth);
   }).catch(function(err){
     btn.disabled=false;
@@ -2892,22 +2895,22 @@ el("do-auth").addEventListener("click",function(){
       goToVerify(err.data.username||u, "يلزم التحقق من بريدكِ الإلكتروني أولًا. أرسلنا رمزًا جديدًا إلى بريدكِ.");
       return;
     }
-    msg.textContent=err.message;
+    msg.classList.add("error"); msg.textContent=err.message;
   });
 });
 
 el("do-verify").addEventListener("click",function(){
   var code=el("verify-code").value.trim().replace(/[٠-٩]/g,function(d){return "٠١٢٣٤٥٦٧٨٩".indexOf(d);}), msg=el("verify-msg"), btn=el("do-verify");
-  if(!/^\d{6}$/.test(code)){ msg.textContent="أدخلي رمز التحقق المكوّن من ٦ أرقام."; return; }
-  btn.disabled=true; msg.textContent="جارٍ المعالجة...";
+  if(!/^\d{6}$/.test(code)){ msg.classList.add("error"); msg.textContent="أدخلي رمز التحقق المكوّن من ٦ أرقام."; return; }
+  btn.disabled=true; msg.classList.remove("error"); msg.textContent="جارٍ المعالجة...";
   api("/api/auth/verify",{method:"POST",body:JSON.stringify({username:pendingUsername,code:code})})
     .then(function(data){
       setToken(data.token);
       applyProfile(data.profile);
-      btn.disabled=false; msg.textContent="";
+      btn.disabled=false; msg.classList.remove("error"); msg.textContent="";
       bootstrapAfterAuth().then(routeAfterAuth);
     }).catch(function(err){
-      btn.disabled=false; msg.textContent=err.message;
+      btn.disabled=false; msg.classList.add("error"); msg.textContent=err.message;
     });
 });
 el("resend-code").addEventListener("click",function(){
